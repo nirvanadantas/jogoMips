@@ -8,17 +8,13 @@ main:	addi $9, $0, 8193  		#tam tela
 	lui $11, 0x1001  		#endereço do pixel a ser pintado
 	
 test: 	beq $10, $0, fimtela
-	bne $13, $14, naoPinta
+	beq $13, $12, fim
 	sw $20, 0($11)
-	
-naoPinta: nop
-
-fimDelay:nop
 	
 	addi $11, $11, 4		#proximo local a ser pintado 
 	add $10, $10, -1
 	addi $13, $13, 1
-	beq $13, $12, resetLinha	#se a linha acabou
+#	beq $13, $12, resetLinha	#se a linha acabou
 	
 	j test
 	
@@ -27,3 +23,4 @@ fimDelay:nop
 fimtela: 	nop
 resetLinha:	add $13, $0, $14
 		j test
+fim:	nop
