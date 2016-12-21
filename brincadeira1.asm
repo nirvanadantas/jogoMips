@@ -8,11 +8,11 @@ test:     beq $10, $0, fimtela 		#se for 0 chegou no fim da tela
           sw $20, 0($11)   		# pinta esta cor neste pixel
           
           addi $16, $0, 100
-#delay:    beq $16, $0, fimDelay
- #         nop
-  #        addi $16, $16, -1
-   #       j delay
-#fimDelay: nop         
+delay:    beq $16, $0, fimDelay
+          nop
+          addi $16, $16, -1
+          j delay
+fimDelay: nop         
                     
                                         
           addi $11, $11, 4		#soma com 4 pq o pq ta em 4px
